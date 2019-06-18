@@ -9,7 +9,27 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var novaTarefa: UITextField!
+    @IBAction func adicionarNovaTarefa(_ sender: Any) {
+        
+        if let textoDigitado = novaTarefa.text {
+            let tarefa = TarefaUserDefauts()
+            tarefa.salvar(tarefa: textoDigitado)
+            novaTarefa.text = ""
+        }
+        
+    }
+    
+    //Esconder Barra de Estatus
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
+    //Esconder Teclado ciclando Fora
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
