@@ -12,10 +12,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var novaTarefa: UITextField!
     @IBAction func adicionarNovaTarefa(_ sender: Any) {
-        
+        //Fechar Teclado
+        view.endEditing(true)
         if let textoDigitado = novaTarefa.text {
             let tarefa = TarefaUserDefauts()
             tarefa.salvar(tarefa: textoDigitado)
+            //limpar Campo de texto
             novaTarefa.text = ""
         }
         
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
     override var prefersStatusBarHidden: Bool{
         return true
     }
+    
     //Esconder Teclado ciclando Fora
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
