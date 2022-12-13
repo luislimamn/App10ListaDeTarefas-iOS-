@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     override var prefersStatusBarHidden: Bool{
         return true
     }
+    
     //Esconder Teclado ciclando Fora
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
